@@ -1,0 +1,15 @@
+<head>
+  <script type="text/javascript" src="file:///android_asset/jquery-1.4.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="file:///android_asset/style.css"></link>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('a').hover(function(e) {
+        $('#' + $(this).attr('href')).addClass('highlight');
+        return false;
+      }, function(e) {
+        $('#' + $(this).attr('href')).removeClass('highlight');
+        return false;
+      }).click(function(e) {return false;});
+    });
+  </script>
+</head>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  <TableLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TableRow>
+      <CheckBox
+        android:id="@+id/canon_eq"
+        android:text="canon_eq" />
+      <CheckBox
+        android:id="@+id/case_insensitive"
+        android:text="case_insensitive" />
+      <CheckBox
+        android:id="@+id/comments"
+        android:text="comments" />
+    </TableRow>
+    <TableRow>
+      <CheckBox
+        android:id="@+id/dotall"
+        android:text="dotall" />
+      <CheckBox
+        android:id="@+id/literal"
+        android:text="literal" />
+      <CheckBox
+        android:id="@+id/multiline"
+        android:text="multiline" />
+    </TableRow>
+    <TableRow>
+      <CheckBox
+        android:id="@+id/unicode_case"
+        android:text="unicode_case" />
+      <CheckBox
+        android:id="@+id/unix_lines"
+        android:text="unix_lines" />
+    </TableRow>
+  </TableLayout>
+  <Button
+    android:id="@+id/ok"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:text="ok" />
+</LinearLayout>

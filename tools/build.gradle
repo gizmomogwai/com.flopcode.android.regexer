@@ -1,0 +1,55 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:1.5.0'
+  }
+}
+
+apply plugin: 'com.android.library'
+
+repositories {
+  jcenter()
+}
+
+android {
+  defaultConfig {
+    versionCode 16
+    versionName "16.0"
+  }
+}
+
+dependencies {
+}
+
+// from http://stackoverflow.com/a/22597752
+def passwordFromKeychain = { name ->
+  def proc = ["security", "find-generic-password", "-s", name, "-a", name, "-w"].execute()
+  proc.waitFor()
+  def stdout = proc.in.text
+  return stdout.trim()
+}
+
+android {
+  compileSdkVersion 23
+  buildToolsVersion "23.0.2"
+
+  defaultConfig {
+    minSdkVersion 21
+    targetSdkVersion 23
+  }
+  signingConfigs {
+    release {
+      storeFile file("release.keystore")
+      storePassword passwordFromKeychain("play-store-keystore-password")
+      keyAlias "networkbrowser"
+      keyPassword passwordFromKeychain("play-store-keystore-password")
+    }
+  }
+  buildTypes {
+    release {
+      signingConfig signingConfigs.release
+    }
+  }
+}

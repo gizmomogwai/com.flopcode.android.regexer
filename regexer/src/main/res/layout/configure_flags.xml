@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+      <CheckBox
+        android:id="@+id/canon_eq"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="canon_eq" />
+      <CheckBox
+        android:id="@+id/case_insensitive"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="case_insensitive" />
+      <CheckBox
+        android:id="@+id/comments"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="comments" />
+      <CheckBox
+        android:id="@+id/dotall"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="dotall" />
+    </LinearLayout>
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+      <CheckBox
+        android:id="@+id/literal"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="literal" />
+      <CheckBox
+        android:id="@+id/multiline"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="multiline" />
+      <CheckBox
+        android:id="@+id/unicode_case"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="unicode_case" />
+      <CheckBox
+        android:id="@+id/unix_lines"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="unix_lines" />
+    </LinearLayout>
+  </LinearLayout>
+  <Button
+    android:id="@+id/ok"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:text="ok" />
+</LinearLayout>

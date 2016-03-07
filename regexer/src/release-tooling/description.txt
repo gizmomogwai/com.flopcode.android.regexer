@@ -1,0 +1,5 @@
+Regexer helps you with your regular expressions on your phone.
+
+* It supports the complete java regular expression library
+* lets you fine tune the pattern-compile flags
+* and shows you the resulting matches in detail.

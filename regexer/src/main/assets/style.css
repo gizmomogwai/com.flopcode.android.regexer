@@ -1,0 +1,19 @@
+body {
+	background-color: #b0bfbf;	
+}
+
+body.error {
+	background-color: #ff9193;
+}
+
+a.even {
+	color: lightgreen;
+}
+
+a.odd {
+	color: darkgreen;
+}
+
+.highlight {
+	background: #99BCBF;
+}
