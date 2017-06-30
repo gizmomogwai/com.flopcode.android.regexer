@@ -40,10 +40,7 @@ dependencies {
 
 // from http://stackoverflow.com/a/22597752
 def passwordFromKeychain = { name ->
-  def proc = ["security", "find-generic-password", "-s", name, "-a", name, "-w"].execute()
-  proc.waitFor()
-  def stdout = proc.in.text
-  return stdout.trim()
+  return "security find-generic-password -s ${name} -a ${name} -w".execute().text.trim();
 }
 
 android {
