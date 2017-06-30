@@ -65,7 +65,6 @@ android {
   buildTypes {
     release {
       signingConfig signingConfigs.release
-      applicationIdSuffix ".release"
       resValue "string", "app_name", "Regexer"
     }
     debug {
