@@ -3,27 +3,39 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:1.5.0'
+    classpath 'com.android.tools.build:gradle:2.3.3'
   }
 }
 
 apply plugin: 'com.android.application'
 
-repositories {
-  jcenter()
+import org.gradle.internal.logging.text.StyledTextOutput.Style
+import org.gradle.internal.logging.text.StyledTextOutputFactory
+def gitVersion = {
+  def version = "git describe --dirty".execute().text.trim();
+  if (version.indexOf('dirty') != -1) {
+    services
+      .get(StyledTextOutputFactory)
+      .create("dirty")
+      .withStyle(Style.Failure)
+      .println("ATTENTION dirty build with version: '${version}'")
+  }
+  return version;
 }
 
 android {
   defaultConfig {
-    versionCode 16
-    versionName "16.0"
+    versionCode 17
+    versionName gitVersion()
   }
 }
 
 dependencies {
   compile 'com.android.support:appcompat-v7:23.2.0'
   compile 'com.android.support:design:23.2.0'
-  compile project(':tools')
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.hamcrest:hamcrest-core:1.3'
+  testCompile 'org.assertj:assertj-core:2.5.0'
 }
 
 // from http://stackoverflow.com/a/22597752
@@ -36,7 +48,7 @@ def passwordFromKeychain = { name ->
 
 android {
   compileSdkVersion 23
-  buildToolsVersion "23.0.2"
+  buildToolsVersion "26.0.0"
 
   defaultConfig {
     minSdkVersion 21
@@ -44,15 +56,29 @@ android {
   }
   signingConfigs {
     release {
-      storeFile file("release.keystore")
+      storeFile file("store/regexer-release.keystore")
       storePassword passwordFromKeychain("play-store-keystore-password")
-      keyAlias "networkbrowser"
+      keyAlias "regexer"
       keyPassword passwordFromKeychain("play-store-keystore-password")
     }
   }
   buildTypes {
     release {
       signingConfig signingConfigs.release
+      applicationIdSuffix ".release"
+      resValue "string", "app_name", "Regexer"
     }
+    debug {
+      applicationIdSuffix ".debug"
+      resValue "string", "app_name", "Regexer-Debug"
+    }
+  }
+  testOptions.unitTests.all {
+    testLogging {
+      events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+    }
+  }
+  lintOptions {
+    abortOnError false
   }
 }

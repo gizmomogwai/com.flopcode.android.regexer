@@ -4,11 +4,13 @@ import java.io.FileInputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class LogFinderTest {
 
   @Test
+  @Ignore
   public void testLogCount() throws Exception {
     FileInputStream in = new FileInputStream("ottobrunn_all.html");
     String help = IOHelper.getContent(in, "UTF-8");

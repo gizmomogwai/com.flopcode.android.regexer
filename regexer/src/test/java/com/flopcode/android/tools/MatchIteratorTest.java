@@ -1,11 +1,9 @@
 package com.flopcode.android.tools;
 
-import java.util.regex.Pattern;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.flopcode.android.tools.MatchIterator;
+import java.util.regex.Pattern;
 
 public class MatchIteratorTest {
 
@@ -23,5 +21,5 @@ public class MatchIteratorTest {
     Assert.assertEquals("a", i.next().group());
     Assert.assertEquals("b", i.next().group());
   }
-  
+
 }
